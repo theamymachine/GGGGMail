@@ -9,7 +9,6 @@ class EmailsController < ApplicationController
       respond_to do |format|
         format.html { redirect_to emails_path }
         format.js { }
-        flash[:notice] = "Email reçu"
       end      
     else
       redirect_to root_path

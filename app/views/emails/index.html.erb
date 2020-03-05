@@ -1,21 +1,23 @@
 <div class="container">
-
-  <div class="text-center">
+  <div class="text-center align-top" >
     <%= button_to emails_path, class:"btn btn-start-order", method:"create", remote: true do%>
     Recevoir un email
   </div>
   <% end %>
-
-  <div class="row">
-    <div class="col-sm-4 border" id="object_col">
-<ul id="email-list">
+  <div class="row" style="margin-bottom: 2%">
+    <div class="col-sm-4" id="object_col">
+<ul id="email-list" class= "list-group" style="margin: 2%">
+<h3 class="text-center mb-4 text-primary"> Mails reçus </h3>
       <% @emails.each do |email|%>
-      <li id="email-<%= email.id %>" class="<%= email.read_status ? "" : "font-weight-bold" %>">
-       <%= link_to "#{email.object}", email_path(email.id), remote: true %>
-       - <%= link_to "❌", email_path(email.id), method:"delete", remote: true %></li><%end%>
+      <li id="email-<%= email.id %>" class="list-group-item <%= email.read_status ? "" : "font-weight-bold" %>">
+
+      <%= link_to "#{email.object}", email_path(email.id), remote: true %>
+      - <%= link_to "❌", email_path(email.id), method:"delete", remote: true %>
+
+</li><%end%>
       </ul>
     </div>
-  <div class="col-sm-8 border" id="body_col">
+  <div class="col-sm-8" id="body_col">
     <h3 class="text-center mb-4 text-primary">Selected email</h3>
     <div id="mail-show"> 
       <div class="child">
