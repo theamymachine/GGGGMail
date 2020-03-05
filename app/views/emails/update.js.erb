@@ -1,0 +1,7 @@
+document.getElementById("email-<%=@email.id%>").classList.toggle("font-weight-bold");
+
+var child = document.getElementById("read-unread")
+document.getElementById("read-button").removeChild(child);
+
+document.getElementById("read-button").insertAdjacentHTML("beforeend", "<%= j render 'update', email: @email %>");
+

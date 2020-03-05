@@ -27,9 +27,16 @@ class EmailsController < ApplicationController
     end
   end
 
+  def update 
+    @email = Email.find(params[:id])
+    @email.update(read_status: !@email.read_status)
+  end
 
   def show
     @email = Email.find(params[:id])
+    @email.read_status = true
+    @email.save 
+
     respond_to do |format|
       format.html { redirect_to emails_path }
       format.js { }
@@ -39,7 +46,7 @@ class EmailsController < ApplicationController
 private
 
   def email_params
-    params.permit(:object, :body)
+    params.permit(:object, :body, :read_status)
   end
 
 end

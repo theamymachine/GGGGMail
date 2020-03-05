@@ -1,0 +1,9 @@
+<% if @email.read_status == true %>
+  <div id="read-button" class="col-6 text-center">
+    <%= button_to "Mark as unread", email_path(email.id), method:"put", remote: true, class:"btn btn-warning" %>
+  </div>
+<% else %>
+  <div id="read-button" class="col-6 text-center">
+    <%= button_to "Mark as read", email_path(email.id), method:"put", remote: true, class:"btn btn-warning" %>
+  </div>
+<% end %>

@@ -5,4 +5,11 @@
 <p>
   <%=@email.body%>
 </p>
+
+  <div id= "read-unread">
+  <div id = "read-button" class="btn btn-secondary">
+  <%= button_to "Mark as unread", email_path(@email.id), method:"put", remote: true, class:"btn btn-warning" %>
+  </div>
+  </div> 
+
 </div>

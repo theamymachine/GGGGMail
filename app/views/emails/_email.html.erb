@@ -1,4 +1,6 @@
-  <li id="email-<%= email.id %>">
-       <%= link_to "#{email.object}", email_path(email.id), remote: true %>
-       - <%= link_to "Supprimer", email_path(email.id), method:"delete", remote: true %></li>
+<li id="email-<%= email.id %>" class="<%= email.read_status ? "" : "font-weight-bold" %>">
 
+      <%= link_to "#{email.object}", email_path(email.id), remote: true %>
+      - <%= link_to "❌", email_path(email.id), method:"delete", remote: true %>
+
+</li>

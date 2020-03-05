@@ -10,9 +10,9 @@
     <div class="col-sm-4 border" id="object_col">
 <ul id="email-list">
       <% @emails.each do |email|%>
-      <li id="email-<%= email.id %>">
+      <li id="email-<%= email.id %>" class="<%= email.read_status ? "" : "font-weight-bold" %>">
        <%= link_to "#{email.object}", email_path(email.id), remote: true %>
-       - <%= link_to "Supprimer", email_path(email.id), method:"delete", remote: true %></li><%end%>
+       - <%= link_to "❌", email_path(email.id), method:"delete", remote: true %></li><%end%>
       </ul>
     </div>
   <div class="col-sm-8 border" id="body_col">
