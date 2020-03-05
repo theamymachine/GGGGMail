@@ -1,18 +1,22 @@
 <h1 class="text-center mb-4">Welcome to my todolist app</h1>
 <%= render 'layouts/task_form'  %>
+
 <div class="container">
   <ul>
   <% @categories.each do  |category|%>
-  <li><%= category.title  %></li>
+  <li id="<%= category.title %>"><%= category.title  %></li>
   <div class="card">
-    <ul>
+    <ul id="cat">
       <% category.tasks.each do |task|  %>
-      <li>
+      <li id="tit" >
         <%= task.title  %>
         <% unless task.deadline.nil? %>
           , to read: <%= task.deadline.strftime('%D')  %>
+          <%= button_to task_path(task), class:"btn btn-danger", method:"delete", remote: true do%> <p class="fas fa-trash-alt">Delete</p>
         <% end %>
-      </li>
+
+        <% end %>
+        </li>
       <% end %>
     </ul>
   </div>

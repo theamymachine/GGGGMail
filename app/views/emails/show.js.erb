@@ -1,0 +1,6 @@
+child = document.getElementsByClassName("child")[0];
+
+document.getElementById("mail-show").removeChild(child);
+
+document.getElementById("mail-show").insertAdjacentHTML("beforeend", "<%= j render 'email_show', email: @email.body %>");
+
