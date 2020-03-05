@@ -27,6 +27,7 @@ class EmailsController < ApplicationController
     end
   end
 
+
   def show
     @email = Email.find(params[:id])
     respond_to do |format|
